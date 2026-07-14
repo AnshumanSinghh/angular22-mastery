@@ -1,0 +1,28 @@
+// Emulated encapsulation means these selectors are scoped to this
+// component alone — .badge here can't collide with a .badge elsewhere.
+.task-card {
+  border: 1px solid #e2e2e2;
+  border-radius: 8px;
+  padding: 1rem;
+
+  &--overdue {
+    border-color: #d64545;
+  }
+
+  &__overdue-flag {
+    color: #d64545;
+    font-weight: 600;
+  }
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.15rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+
+  &--done { background: #d7f5dd; }
+  &--progress { background: #fff3cd; }
+  &--blocked { background: #fde2e2; }
+  &--todo { background: #e9ecef; }
+}

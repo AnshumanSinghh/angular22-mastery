@@ -1,0 +1,7 @@
+<section class="task-list">
+    @for (task of tasks(); track task.id) {
+      <app-task-card [task]="task" />
+    } @empty {
+      <p class="empty-state">No tasks yet — create one to get started.</p>
+    }
+</section>
