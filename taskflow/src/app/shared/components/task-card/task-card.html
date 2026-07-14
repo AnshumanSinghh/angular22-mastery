@@ -1,0 +1,23 @@
+<article class="task-card" [class.task-card--overdue]="isOverdue()">
+    <header class="task-card__header">
+        <h3>{{ task().title }}</h3>
+
+        @switch (task().status){
+            @case ('done') { <span class="badge badge--done">Done</span> }
+            @case ('in-progress') { <span class="badge badge--progress">In progress</span> }
+            @case ('blocked') { <span class="badge badge--blocked">Blocked</span> }
+            @default { <span class="badge badge--todo">To do</span> }
+        }
+    </header>   
+
+    @if(task().assignee){
+        <p class="task-card__assignee"> Assigned to {{ task().assignee }}</p>
+    } 
+    @else {
+        <p class="task-card__assignee task-card__assignee--unassigned">Unassigned</p>
+    }
+
+    @if (isOverdue()) {
+        <p class="task-card__overdue-flag">⚠ Overdue</p>
+    }
+</article>
