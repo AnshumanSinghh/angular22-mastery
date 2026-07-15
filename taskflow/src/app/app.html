@@ -5,5 +5,9 @@
 -->
 <!-- <router-outlet /> -->
 
-<!-- src/app/app.html -->
-<app-task-list [tasks]="sampleTasks" />
+<app-panel>
+  <h2 panel-header>My Tasks</h2>
+  <app-task-list [tasks]="sampleTasks" />
+  <!-- <button (click)="/* call scrollToTop() via a viewChild(TaskList) if needed */">Scroll to top</button> -->
+  <button>Scroll to top</button>
+</app-panel>
