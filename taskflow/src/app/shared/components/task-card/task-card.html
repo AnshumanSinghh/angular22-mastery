@@ -8,6 +8,9 @@
             @case ('blocked') { <span class="badge badge--blocked">Blocked</span> }
             @default { <span class="badge badge--todo">To do</span> }
         }
+        @if (task().dueDate) {
+            <p class="task-card__due" [appOverdueHighlight]="isOverdue()">{{ task().dueDate | relativeDate }}</p>
+        }
     </header>   
 
     @if(task().assignee){

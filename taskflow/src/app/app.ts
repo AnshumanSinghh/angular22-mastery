@@ -2,11 +2,12 @@ import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { TaskList } from './features/tasks/ui/task-list';
 import { Task } from './shared/models/task';
+import { Panel } from "./shared/components/panel/panel";
 
 @Component({
   selector: 'app-root',
   //imports: [RouterOutlet],
-  imports: [TaskList], // swap RouterOutlet for TaskList, temporarily
+  imports: [TaskList, Panel], // swap RouterOutlet for TaskList, temporarily
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })

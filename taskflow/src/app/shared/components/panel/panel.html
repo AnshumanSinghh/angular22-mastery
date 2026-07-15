@@ -1,0 +1,8 @@
+<section class="panel">
+  <header class="panel__header">
+    <ng-content select="[panel-header]" />
+  </header>
+  <div class="panel__body">
+    <ng-content /> <!-- default slot: anything NOT matched by [panel-header] lands here -->
+  </div>
+</section>
