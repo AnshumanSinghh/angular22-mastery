@@ -1,0 +1,7 @@
+<ul class="recent-activity">
+    @for (entry of activity(); track entry) {
+      <li>{{ entry }}</li>
+    } @empty {
+      <li class="empty-state">No recent activity.</li>
+    }
+</ul>

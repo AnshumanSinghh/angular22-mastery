@@ -1,0 +1,30 @@
+<div class="task-search-bar">
+    <!--
+      $event.target is typed as the generic EventTarget by Angular's
+      template type checker, which doesn't know it's really an <input> —
+      so .value isn't available on it directly. $any(...) is Angular's
+      template-only escape hatch: "trust me, skip type-checking this one
+      expression." Use sparingly — it's a deliberate, narrow exception,
+      not a general workaround for type errors.
+    -->
+    <input
+      type="text"
+      placeholder="Search tasks..."
+      [value]="query()"
+      (input)="onInput($any($event.target).value)"
+    />
+  
+    <select [value]="statusFilter()" (change)="statusFilter.set($any($event.target).value)">
+      <option value="all">All statuses</option>
+      <option value="todo">To do</option>
+      <option value="in-progress">In progress</option>
+      <option value="done">Done</option>
+      <option value="blocked">Blocked</option>
+    </select>
+  
+    @for (task of results(); track task.id) {
+      <app-task-card [task]="task" />
+    } @empty {
+      <p class="empty-state">No matches.</p>
+    }
+</div>
